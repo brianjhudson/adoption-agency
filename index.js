@@ -1,7 +1,9 @@
-// TODO: Make a server to listen for connections
-
-
 // TODO: Make a connection to a database
+const express = require('express');
+
+const app = express();
 
 
-console.log('This is my entry point.');
+app.listen(3000, () => {
+    console.log('Server is now listening.');
+})
