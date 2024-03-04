@@ -1,14 +1,19 @@
 // TODO: Make a connection to a database
 const express = require('express');
+const connectToDb = require('./db');
 
 const app = express();
 
-app.get('/', (req, res, next) => {
+app.get('/', async (req, res, next) => {
     return res.json({message: 'Welcome to the Pet Adoption Agency.'});
 });
 
-app.get('/animal-types', (req, res, next) => {
-    return res.json([]);
+app.get('/animal-types', async (req, res, next) => {
+    const client = await connectToDb();
+    const {rows} = await client.query('SELECT * FROM animal_types;')
+    const strippedData = rows.map((row) => row.type_name);
+    client.end()
+    return res.json(strippedData);
 })
 
 app.get('/animals', (req, res, next) => {
