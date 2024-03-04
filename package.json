@@ -1,0 +1,11 @@
+{
+  "name": "adoption-agency",
+  "version": "0.1.0",
+  "description": "This server connects applications to the adoption database. (This is a test package for learning purposes.)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
